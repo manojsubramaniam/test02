@@ -19,9 +19,8 @@ pipeline{
         }
         stage("docker compose"){
               steps {
-                	sh '''
-			docker-compose up -itd --build
-			'''
+                      sh 'docker compose up -d --no-color --wait'
+		      sh 'docker-compose up -itd --build'
               }
         }
 	
