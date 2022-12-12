@@ -19,7 +19,7 @@ pipeline{
         }
         stage('Docker Container'){
             steps {
-                sh 'docker compose up -D'
+                sh 'docker-compose up -d --build'
             }
         }
 	stage('File Deployment'){
