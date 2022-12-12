@@ -19,11 +19,7 @@ pipeline{
         }
         stage('Docker Container'){
             steps {
-                sh '''
-                    docker system prune -a --volumes -f
-                    docker compose up -itd
-                    docker compose ps
-                   '''
+                sh 'docker compose up -itd'
             }
         }
 	stage('File Deployment'){
