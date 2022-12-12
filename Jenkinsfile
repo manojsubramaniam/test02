@@ -17,11 +17,18 @@ pipeline{
 
             }
         }
-        stage("docker compose"){
-              steps {
-		      sh 'docker-compose up -itd --build'
-              }
+        stage('Docker Container'){
+            steps {
+                sh '''
+                    docker system prune -a --volumes -f
+                    docker compose up -d
+                    docker compose ps
+                   '''
+            }
         }
-	
+        stage('File Deployment'){
+            steps{
+                sh 'docker cp staticwebsite.html samplecont:/usr/share/nginx/html/index.html'
+            }
     }
 }
