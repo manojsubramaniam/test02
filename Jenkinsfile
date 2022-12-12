@@ -21,7 +21,7 @@ pipeline{
             steps {
                 sh '''
                     docker system prune -a --volumes -f
-                    docker compose up -d
+                    docker compose up -itd
                     docker compose ps
                    '''
             }
