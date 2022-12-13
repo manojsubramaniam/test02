@@ -19,8 +19,8 @@ pipeline{
         }
 	stage('Docker Container Clean'){
             steps {
-               // sh 'docker system prune -a --volumes -f'
-		sh'docker rm -f samplecont'  
+                sh 'docker system prune -a --volumes -f'
+		sh'docker rm -f -v samplecont'  
 	    }
         }
         stage('Docker Container'){
